@@ -14,8 +14,10 @@ namespace GetCep
             try
             {
                 var cepClient = RestService.For<ICepApiService>("http://viacep.com.br");
+                
                 Console.WriteLine("Informe seu CEP:");
                 string cepInformado = Console.ReadLine().ToString();
+                
                 Console.WriteLine("\nConsultando informações do CEP: " + cepInformado);
 
                 var adrress = await cepClient.GetAddressAsync(cepInformado);
@@ -30,7 +32,6 @@ namespace GetCep
             }
             catch (Exception e)
             {
-
                 Console.WriteLine("Erro na consulta de CEP: " + e.Message);
             }
         }
